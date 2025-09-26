@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS task_manager;
+
+USE task_manager;
+
+CREATE TABLE tasks (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) COLLATE utf8mb4_general_ci NOT NULL,
+    description TEXT COLLATE utf8mb4_general_ci DEFAULT NULL,
+    deadline DATETIME DEFAULT NULL,
+    priority ENUM('Low', 'Medium', 'High') COLLATE utf8mb4_general_ci DEFAULT 'Medium',
+    status ENUM('Pending', 'In Progress', 'Completed') COLLATE utf8mb4_general_ci DEFAULT 'Pending',
+    reminded TINYINT(1) DEFAULT 0,
+    PRIMARY KEY (id)
+);
